@@ -10,10 +10,44 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Web View Controller-->
+        <scene sceneID="aFn-ur-r4q">
+            <objects>
+                <viewController id="rCQ-kC-dYp" customClass="WebViewController" customModule="RSSFeeder" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qJC-TZ-sXC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mdx-dW-qNB">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="mdx-dW-qNB" firstAttribute="trailing" secondItem="A69-lZ-9xv" secondAttribute="trailing" id="GYF-Br-7Af"/>
+                            <constraint firstItem="mdx-dW-qNB" firstAttribute="top" secondItem="A69-lZ-9xv" secondAttribute="top" id="bmq-2s-vaI"/>
+                            <constraint firstItem="mdx-dW-qNB" firstAttribute="leading" secondItem="A69-lZ-9xv" secondAttribute="leading" id="oPk-jv-alo"/>
+                            <constraint firstItem="mdx-dW-qNB" firstAttribute="bottom" secondItem="A69-lZ-9xv" secondAttribute="bottom" id="rAw-TQ-43N"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="A69-lZ-9xv"/>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="mdx-dW-qNB" id="zFj-cQ-nYf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZtK-vO-n7c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-66.400000000000006" y="-612.14392803598207"/>
+        </scene>
         <!--Feed Items-->
         <scene sceneID="uAs-YD-uwf">
             <objects>
-                <tableViewController id="Xfc-pE-MzK" sceneMemberID="viewController">
+                <tableViewController id="Xfc-pE-MzK" customClass="FeedItemsTableViewController" customModule="RSSFeeder" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="IUD-dF-fnO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -37,6 +71,9 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="Qm8-mP-bqB"/>
                         <barButtonItem key="leftBarButtonItem" systemItem="organize" id="hFF-dy-1S6">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <segue destination="ufQ-lC-uX5" kind="show" id="tbt-L0-Fek"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="POc-zR-6vf">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -48,12 +85,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gIB-77-83S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="99" y="80"/>
+            <point key="canvasLocation" x="-66" y="80"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Feed View Controller-->
         <scene sceneID="loZ-mC-lGM">
             <objects>
-                <viewController id="b0d-lX-Nfs" sceneMemberID="viewController">
+                <viewController id="b0d-lX-Nfs" customClass="AddFeedViewController" customModule="RSSFeeder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Adp-da-GzX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -61,7 +98,7 @@
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Feed name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4zN-NR-ndn">
                                 <rect key="frame" x="62.5" y="114" width="250" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="250" id="wyb-cL-hxH"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="wyb-cL-hxH"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -70,7 +107,7 @@
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Feed address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QOB-Zl-yu7">
                                 <rect key="frame" x="62.5" y="160" width="250" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="250" id="4UJ-H4-gkd"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="4UJ-H4-gkd"/>
                                     <constraint firstAttribute="height" constant="30" id="5Se-Wn-uhE"/>
                                 </constraints>
                                 <nil key="textColor"/>
@@ -81,13 +118,16 @@
                                 <rect key="frame" x="137.5" y="220" width="100" height="40"/>
                                 <color key="backgroundColor" red="0.35294117650000001" green="1" blue="0.59607843140000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="YSF-Vs-JCr"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="YSF-Vs-JCr"/>
                                     <constraint firstAttribute="height" constant="40" id="piS-yG-3DT"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="21"/>
                                 <state key="normal" title="Save">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="saveButton:" destination="b0d-lX-Nfs" eventType="touchUpInside" id="xPy-T3-ORm"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -101,10 +141,42 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0bE-9A-dzT"/>
                     </view>
+                    <connections>
+                        <outlet property="addressLabel" destination="QOB-Zl-yu7" id="fNU-Oc-6L5"/>
+                        <outlet property="nameLabel" destination="4zN-NR-ndn" id="mv7-5d-wN0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nmu-HS-sCT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="851" y="80"/>
+            <point key="canvasLocation" x="759" y="-71"/>
+        </scene>
+        <!--Feed List-->
+        <scene sceneID="WGH-2b-TfR">
+            <objects>
+                <tableViewController title="Feed List" id="ufQ-lC-uX5" customClass="FeedsTableViewController" customModule="RSSFeeder" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="86Q-Mk-3c4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="kI4-jP-jkv">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kI4-jP-jkv" id="ALj-7Y-wRp">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ufQ-lC-uX5" id="0Bh-JB-Wty"/>
+                            <outlet property="delegate" destination="ufQ-lC-uX5" id="fpP-7b-A9Y"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1dH-2M-ogM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="758" y="605"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xir-aT-66U">
@@ -124,7 +196,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iys-C6-rAu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-638" y="81"/>
+            <point key="canvasLocation" x="-806" y="80"/>
         </scene>
     </scenes>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
