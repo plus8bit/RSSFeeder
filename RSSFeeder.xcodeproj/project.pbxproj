@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01440D5022A3BEA5001696DB /* DataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01440D4F22A3BEA4001696DB /* DataModels.swift */; };
 		0184701922A2E3AE00E37237 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0184701822A2E3AE00E37237 /* AppDelegate.swift */; };
 		0184701B22A2E3AE00E37237 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0184701A22A2E3AE00E37237 /* ViewController.swift */; };
 		0184701E22A2E3AE00E37237 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0184701C22A2E3AE00E37237 /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		01440D4F22A3BEA4001696DB /* DataModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModels.swift; sourceTree = "<group>"; };
 		0184701522A2E3AD00E37237 /* RSSFeeder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RSSFeeder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0184701822A2E3AE00E37237 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0184701A22A2E3AE00E37237 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				01CF2FAD22A3A91900BC79BC /* AddFeedViewController.swift */,
 				01CF2FAB22A3A86D00BC79BC /* FeedsTableViewController.swift */,
 				01CF2FA922A3A78E00BC79BC /* FeedItemsTableViewController.swift */,
+				01440D4F22A3BEA4001696DB /* DataModels.swift */,
 				0184701F22A2E3B500E37237 /* Assets.xcassets */,
 				0184702122A2E3B500E37237 /* LaunchScreen.storyboard */,
 				0184702422A2E3B500E37237 /* Info.plist */,
@@ -151,6 +154,7 @@
 				01CF2FB022A3A97E00BC79BC /* WebViewController.swift in Sources */,
 				01CF2FAA22A3A78E00BC79BC /* FeedItemsTableViewController.swift in Sources */,
 				01CF2FAE22A3A91900BC79BC /* AddFeedViewController.swift in Sources */,
+				01440D5022A3BEA5001696DB /* DataModels.swift in Sources */,
 				0184701922A2E3AE00E37237 /* AppDelegate.swift in Sources */,
 				01CF2FAC22A3A86D00BC79BC /* FeedsTableViewController.swift in Sources */,
 			);
